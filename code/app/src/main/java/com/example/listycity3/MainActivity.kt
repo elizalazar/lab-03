@@ -4,21 +4,12 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.foundation.layout.padding
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.example.listycity3.ui.theme.ListyCity3Theme
+// Deleted unused libraries
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +22,10 @@ class MainActivity : ComponentActivity() {
                     CityListScreen(
                         cities = cityRepository.cities,
                         onAddCity = { cityRepository.addCity(it) }, // Part 2, step 2
+                        // Lab Participation
+                        onUpdateCity = { oldCity, updatedCity ->
+                            cityRepository.updateCity(oldCity, updatedCity)
+                                       },
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
